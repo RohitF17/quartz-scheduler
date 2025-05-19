@@ -21,7 +21,6 @@ public class SchedulerController {
     @PostMapping("/register")
     public ResponseEntity<String> registerScheduledTask(@RequestBody ScheduledTaskRegistrationRequest registrationRequest) {
         try {
-            System.out.println("Good days");
             schedulerService.scheduleTask(registrationRequest.getId(), registrationRequest.getTriggerTime(), registrationRequest.getPayload());
             return ResponseEntity.ok("Task registered successfully with ID: " + registrationRequest.getId());
         } catch (Exception e) {
